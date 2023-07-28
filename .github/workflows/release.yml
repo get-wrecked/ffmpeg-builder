@@ -6,6 +6,9 @@ on:
       run_id:
         required: true
         description: Run ID to generate release from
+      release_tag:
+        required: true
+        description: Tag name to use for release
       release_name:
         required: true
         description: Release Name
@@ -14,13 +17,28 @@ jobs:
   release:
     runs-on: windows-2019
     steps:
+      - name: Create tag
+        uses: actions/github-script@v6
+        with:
+          script: |
+            let run = await github.rest.actions.getWorkflowRun({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: ${{ github.event.inputs.run_id }}
+            })
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/release-${{ github.event.inputs.release_tag }}',
+              sha: run.data.head_sha
+            })
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: release-${{ github.event.inputs.release_tag }}
           release_name: ${{ github.event.inputs.release_name }}
 
       - name: Upload artifacts as assets
