@@ -1,8 +1,11 @@
 name: build
 
 on:
-  - push
-  - workflow_call
+  push:
+    tags:
+      - '**'
+  workflow_dispatch:
+    inputs: null
 
 jobs:
   build:
