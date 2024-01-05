@@ -72,6 +72,8 @@ cd build
 AutoBuildForWindows.bat Win64-Release-ASM
 ```
 
+- Open a new `x64 Native Tools Command Prompt for 2019` prompt. 
+- Run `bash` command in the above command prompt to move to a bash prompt.
 - Ensure that openh264 libraries are installed /usr/local/ directories. Add it to the pkg config path with the below command.
 
 ```
@@ -80,7 +82,7 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 
 - Run `pkg-config --libs openh264` command to check if pkg config is detecting openh264 package without any errors.
 
-- Now in a new folder checkout and build ffmpeg with the below commands in the same bash prompt.
+- Now in a new folder checkout and build ffmpeg with the below commands.
 
 ```
 git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
