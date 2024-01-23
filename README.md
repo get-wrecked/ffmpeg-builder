@@ -72,7 +72,7 @@ cd build
 AutoBuildForWindows.bat Win64-Release-ASM
 ```
 
-- Open a new `x64 Native Tools Command Prompt for 2019` prompt. 
+- Open a new `x64 Native Tools Command Prompt for 2022` prompt. 
 - Run `bash` command in the above command prompt to move to a bash prompt.
 - Ensure that openh264 libraries are installed /usr/local/ directories. Add it to the pkg config path with the below command.
 
