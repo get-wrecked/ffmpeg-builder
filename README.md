@@ -88,7 +88,7 @@ export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
 git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
 cd ffmpeg
 git checkout n5.1
-./configure --toolchain=msvc --enable-libopenh264 --enable-shared --disable-encoders --disable-decoders --enable-encoder=libopenh264 --enable-encoder=aac
+./configure --toolchain=msvc --enable-libopenh264 --enable-shared --disable-encoders --disable-decoders --enable-encoder=libopenh264 --enable-encoder=aac --enable-encoder=opus
 make -j4
 make install
 ```
