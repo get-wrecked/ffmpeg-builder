@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-2019
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1.1
@@ -27,19 +27,19 @@ jobs:
         run: cmd /C build.bat
 
       - name: "Upload artifacts: libav"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ffmpeg_libav
           path: output/recorder/libav/*
 
       - name: "Upload artifacts: libav_pdb"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ffmpeg_libav_pdb
           path: output/recorder/libav_pdb/*
 
       - name: "Upload artifacts: tools"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ffmpeg_tools
           path: output/recorder/tools/*
